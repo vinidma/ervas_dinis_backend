@@ -73,3 +73,4 @@ class CategoriaRepository:
     #
     # def deletar(self, id_categoria):
     #     pass
+    # hii
