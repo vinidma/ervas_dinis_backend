@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e64d449d-b622-40e7-9d3d-f966d661d0c3" name="Changes" comment="iniciando projeto">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/categorias/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/categorias/categoria_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/db_config/__init__.py" afterDir="false" />
+    <list default="true" id="e64d449d-b622-40e7-9d3d-f966d661d0c3" name="Changes" comment="continuação do projeto&#10;&#10;- separar por categorias para melhor visão do trabalho no geral">
+      <change afterPath="$PROJECT_DIR$/app/features/categorias/categoria_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/features/categorias/categoria_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/features/categorias/categoria_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/_app_antigo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/categorias/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/categorias/categoria_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/categorias/categoria_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/db_config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/categorias/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +50,11 @@
     &quot;last_opened_file_path&quot;: &quot;C:/ervas_dinis_backend&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ervas_dinis_backend\app\features" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,11 +79,28 @@
       <option name="project" value="LOCAL" />
       <updated>1749159633323</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="continuação do projeto&#10;&#10;- separar por categorias para melhor visão do trabalho no geral">
+      <option name="closed" value="true" />
+      <created>1749238352161</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749238352161</updated>
+    </task>
+    <task id="LOCAL-00003" summary="continuação do projeto&#10;&#10;- separar por categorias para melhor visão do trabalho no geral">
+      <option name="closed" value="true" />
+      <created>1749238453652</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749238453652</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="iniciando projeto" />
-    <option name="LAST_COMMIT_MESSAGE" value="iniciando projeto" />
+    <MESSAGE value="continuação do projeto&#10;&#10;- separar por categorias para melhor visão do trabalho no geral" />
+    <option name="LAST_COMMIT_MESSAGE" value="continuação do projeto&#10;&#10;- separar por categorias para melhor visão do trabalho no geral" />
   </component>
 </project>
