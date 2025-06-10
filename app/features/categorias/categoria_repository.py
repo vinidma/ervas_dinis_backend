@@ -73,3 +73,87 @@ class CategoriaRepository:
             finally:
                 if cursor:
                     cursor.close()
+
+
+    def buscar_por_id(self, id_categoria: int) -> Categoria | None:
+        """
+        Busca uma categoria específica pelo seu ID.
+        Retorna um objeto Categoria ou None se não for encontrada.
+        """
+        cursor = None
+        try:
+            cursor = self.db_connection.cursor()
+            sql = "SELECT id, nome_categoria, descricao_categoria FROM categorias WHERE id = ?"
+
+            cursor.execute(sql, (id_categoria,))
+
+            # Pega apenas um resultado da consulta
+            registro = cursor.fetchone()
+
+            if registro:
+                # Se encontrou um registro, cria e retorna o objeto Categoria
+                return Categoria(id=registro['id'], nome=registro['nome_categoria'],
+                                 descricao=registro['descricao_categoria'])
+
+            # Se não encontrou nada, retorna None
+            return None
+
+        except Exception as e:
+            logging.error(f"Erro no repositório ao buscar categoria por ID: {e}")
+            raise e
+        finally:
+            if cursor:
+                cursor.close()
+
+    def atualizar(self, categoria: Categoria) -> Categoria:
+            """
+            Atualiza uma categoria existente no banco de dados.
+            Retorna a categoria atualizada.
+            """
+            cursor = None
+            try:
+                cursor = self.db_connection.cursor()
+                sql = """
+                    UPDATE categorias 
+                    SET nome_categoria = ?, descricao_categoria = ?
+                    WHERE id = ?
+                """
+                val = (categoria.nome, categoria.descricao, categoria.id)
+
+                cursor.execute(sql, val)
+                self.db_connection.commit()
+
+                return categoria
+
+            except Exception as e:
+                logging.error(f"Erro no repositório ao atualizar categoria: {e}")
+                self.db_connection.rollback()
+                raise e
+            finally:
+                if cursor:
+                    cursor.close()
+
+    def deletar(self, id_categoria: int) -> int:
+        """
+        Deleta uma categoria do banco de dados pelo seu ID.
+        Retorna o número de linhas afetadas (1 se deletou, 0 se não encontrou).
+        """
+        cursor = None
+        try:
+            cursor = self.db_connection.cursor()
+            sql = "DELETE FROM categorias WHERE id = ?"
+
+            cursor.execute(sql, (id_categoria,))
+            self.db_connection.commit()
+
+            # cursor.rowcount nos diz quantas linhas foram afetadas pelo último comando.
+            # Será 1 se a categoria foi encontrada e deletada, e 0 caso contrário.
+            return cursor.rowcount
+
+        except Exception as e:
+            logging.error(f"Erro no repositório ao deletar categoria: {e}")
+            self.db_connection.rollback()
+            raise e
+        finally:
+            if cursor:
+                cursor.close()
