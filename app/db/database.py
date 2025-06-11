@@ -20,11 +20,13 @@ def close_db(e=None):
     if db is not None:
         db.close()
 
+
 def init_db():
     """Inicializa o banco de dados e cria as tabelas."""
-    # Usamos with para garantir que a conexão seja fechada mesmo se houver erro
     with sqlite3.connect(DATABASE_FILE) as conn:
         cursor = conn.cursor()
+
+        # Cria a tabela de categorias (como antes)
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS categorias (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -32,5 +34,19 @@ def init_db():
             descricao_categoria TEXT
         );
         """)
+
+        # --- NOVO: Cria a tabela de produtos ---
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS produtos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL,
+            descricao TEXT,
+            preco REAL NOT NULL,
+            estoque INTEGER DEFAULT 0,
+            categoria_id INTEGER NOT NULL,
+            FOREIGN KEY (categoria_id) REFERENCES categorias (id)
+        );
+        """)
+
         conn.commit()
     print("Banco de dados inicializado.")
