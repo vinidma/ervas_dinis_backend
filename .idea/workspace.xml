@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e64d449d-b622-40e7-9d3d-f966d661d0c3" name="Changes" comment="feat: Finaliza CRUD da API de Categorias e refatora camadas&#10;&#10;Finaliza a implementação de todas as operações CRUD (Create, Read, Update, Delete) para o recurso de Categorias, deixando a funcionalidade completa.&#10;&#10;- Implementação dos endpoints:&#10;  - `GET /categorias/` para listar todas as categorias.&#10;  - `GET /categorias/&lt;id&gt;` para buscar uma categoria específica.&#10;  - `PUT /categorias/&lt;id&gt;` para atualizar uma categoria.&#10;  - `DELETE /categorias/&lt;id&gt;` para deletar uma categoria.&#10;&#10;- Realizada refatoração crucial para alinhar as responsabilidades das camadas, movendo a lógica de acesso ao banco de dados que estava no Service para o Repository.&#10;&#10;- Correção do erro de `AttributeError` causado pela indentação incorreta dos métodos na classe `CategoriaService`, garantindo que a arquitetura esteja corretamente implementada.">
-      <change afterPath="$PROJECT_DIR$/app/features/produtos/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/features/produtos/produto_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/features/produtos/produto_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/features/produtos/produto_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/features/produtos/produto_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ervas_dinis_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ervas_dinis_backend.iml" afterDir="false" />
+    <list default="true" id="e64d449d-b622-40e7-9d3d-f966d661d0c3" name="Changes" comment="Criando serviços para produtos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/db/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/db/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/features/produtos/produto_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/produtos/produto_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/features/produtos/produto_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/produtos/produto_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/features/produtos/produto_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/features/produtos/produto_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,7 +50,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/ervas_dinis_backend"
+    "last_opened_file_path": "C:/ervas_dinis_backend",
+    "settings.editor.selected.configurable": "configurable.group.editor"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -144,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749594664600</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Criando serviços para produtos">
+      <option name="closed" value="true" />
+      <created>1749678714508</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749678714508</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -152,7 +160,8 @@
     <MESSAGE value="continuação do projeto&#10;&#10;- separar por categorias para melhor visão do trabalho no geral" />
     <MESSAGE value="feat: Implementa CRUD inicial de Categorias com Injeção de Dependência&#10;&#10;Este commit estabelece a primeira funcionalidade completa da API,&#10;permitindo a criação e listagem de categorias de produtos.&#10;&#10;Principais mudanças:&#10;- Criação do endpoint `POST /api/v1/categorias/` para adicionar novas categorias.&#10;- Criação do endpoint `GET /api/v1/categorias/` para listar todas as categorias cadastradas.&#10;- Implementação completa da arquitetura em camadas (Controller, Service, Repository, Model) para a funcionalidade de Categorias.&#10;- Refatoração do gerenciamento de dependências para utilizar o contexto do Flask (`g`) e hooks (`before_request`), desacoplando o controller da criação de serviços e repositórios.&#10;- Centralização do gerenciamento da conexão com o banco de dados (SQLite)." />
     <MESSAGE value="feat: Finaliza CRUD da API de Categorias e refatora camadas&#10;&#10;Finaliza a implementação de todas as operações CRUD (Create, Read, Update, Delete) para o recurso de Categorias, deixando a funcionalidade completa.&#10;&#10;- Implementação dos endpoints:&#10;  - `GET /categorias/` para listar todas as categorias.&#10;  - `GET /categorias/&lt;id&gt;` para buscar uma categoria específica.&#10;  - `PUT /categorias/&lt;id&gt;` para atualizar uma categoria.&#10;  - `DELETE /categorias/&lt;id&gt;` para deletar uma categoria.&#10;&#10;- Realizada refatoração crucial para alinhar as responsabilidades das camadas, movendo a lógica de acesso ao banco de dados que estava no Service para o Repository.&#10;&#10;- Correção do erro de `AttributeError` causado pela indentação incorreta dos métodos na classe `CategoriaService`, garantindo que a arquitetura esteja corretamente implementada." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Finaliza CRUD da API de Categorias e refatora camadas&#10;&#10;Finaliza a implementação de todas as operações CRUD (Create, Read, Update, Delete) para o recurso de Categorias, deixando a funcionalidade completa.&#10;&#10;- Implementação dos endpoints:&#10;  - `GET /categorias/` para listar todas as categorias.&#10;  - `GET /categorias/&lt;id&gt;` para buscar uma categoria específica.&#10;  - `PUT /categorias/&lt;id&gt;` para atualizar uma categoria.&#10;  - `DELETE /categorias/&lt;id&gt;` para deletar uma categoria.&#10;&#10;- Realizada refatoração crucial para alinhar as responsabilidades das camadas, movendo a lógica de acesso ao banco de dados que estava no Service para o Repository.&#10;&#10;- Correção do erro de `AttributeError` causado pela indentação incorreta dos métodos na classe `CategoriaService`, garantindo que a arquitetura esteja corretamente implementada." />
+    <MESSAGE value="Criando serviços para produtos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criando serviços para produtos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
